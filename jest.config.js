@@ -1,5 +1,9 @@
 // jest.config.js
-module.exports = {
-    testTimeout: 20000,
-  };
+export default {
+  verbose: true,
+  testEnvironment: "node",
+  collectCoverage: true,
+  coverageDirectory: "coverage",
+};
+
   
