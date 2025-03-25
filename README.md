@@ -1,20 +1,16 @@
-# book-reservation-backend-training# CI/CD Pipeline Documentation
+# Book Reservation Backend Training
 
-This document describes the GitHub Actions workflow used to automate backend tests using Jest for the book reservation backend project. The pipeline is triggered on every push and pull request to the `main` branch and executes tests on multiple platforms and Node.js versions. It also enforces code quality through ESLint, caches dependencies to optimize performance, and runs automated tests.
+This project is a backend system for managing book reservations built with Node.js, Express, and MongoDB. It demonstrates robust application development—complete with authentication, API endpoints, and automated testing using Jest and GitHub Actions.
 
----
+## Key Features
 
-## Overview
+- **Automated CI/CD:** All tests run automatically on every push and pull request to the `main` branch via GitHub Actions.
+- **Multi-Platform Testing:** The test suite executes on Ubuntu, Windows, and macOS using Node.js versions 20, 18, and 16.
+- **Code Quality:** ESLint is integrated to enforce consistent coding standards.
+- **Basic Tests:** The project includes simple tests (e.g., checking that unknown routes return 404 status) to validate backend functionality.
+- **Efficient Dependency Caching:** Uses caching to speed up dependency installation during CI runs.
 
-The CI/CD pipeline is defined in the `.github/workflows/backend-tests.yml` file. Its main objectives are:
-
-- **Automated Testing**: Ensure backend functionality by running Jest tests on every commit.
-- **Multi-Platform Support**: Test the project on Ubuntu, Windows, and macOS runners.
-- **Multiple Node.js Versions**: Validate compatibility by testing using Node.js versions 20, 18, and 16.
-- **Code Quality Checks**: Run ESLint to maintain consistent code style and catch common errors.
-- **Caching**: Cache `node_modules` based on `package-lock.json` to speed up dependency installation.
-- **Automation Triggers**: The workflow is automatically triggered on push and pull requests targeting the `main` branch.
-
+## Project Structure
 ---
 
 ## Workflow Breakdown
@@ -26,3 +22,16 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+
+
+book-reservation-backend-training/ ├── .github/ │ └── workflows/ │ └── backend-tests.yml 
+# GitHub Actions workflow for testing and 
+linting ├── config/ │ └── database.js # Database connection configuration 
+├── controllers/ # Route controllers (e.g., books, auth) 
+├── middleware/ # Express middleware (e.g., auth, error handling) 
+├── models/ # Mongoose models (e.g., Book, User, Reservation) 
+├── routes/ # API route definitions 
+├── tests/ or tests/ # Test files using Jest & Supertest 
+├── app.js # Main application file (with conditional server start) 
+├── package.json # Project settings and scripts 
+└── README.md # This file
