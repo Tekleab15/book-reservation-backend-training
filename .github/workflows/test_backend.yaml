@@ -25,13 +25,22 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '20'
+      
+      # Step 3: Cache Node Modules (optional) for faster builds
+      - name: Cache Node Modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
-      # Step 3: Install project dependencies.
+      # Step 4: Install project dependencies.
       # "npm ci" installs dependencies cleanly using your package-lock.json.
       - name: Install Dependencies
         run: npm ci
 
-      # Step 4: Run tests using Jest.
+      # Step 5: Run tests using Jest.
       # Ensure your package.json has the test script defined as "jest".
       - name: Run Tests
         run: npm test
