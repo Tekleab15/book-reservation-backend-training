@@ -8,6 +8,10 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+permissions:
+  contents: write
+  actions: write
+
 
 jobs:
   test:
@@ -15,7 +19,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-        node-version: [20]  
+        node-version: [20, 18, 16]  
 
     runs-on: ${{ matrix.os }}
 
@@ -63,3 +67,5 @@ jobs:
         with:
           name: coverage-report
           path: coverage/
+      
+      
