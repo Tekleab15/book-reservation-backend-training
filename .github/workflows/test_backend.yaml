@@ -26,7 +26,7 @@ jobs:
         with:
           node-version: '20'
 
-      # Step 3: Install project dependencies.
+      # Step 3: Install project dependencies including jest tester.
       # "npm ci" installs dependencies cleanly using your package-lock.json.
       - name: Install Dependencies
         run: npm ci
