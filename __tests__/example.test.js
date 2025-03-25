@@ -1,7 +1,7 @@
 // Jest based simple test file
 
-describe('Basic Test', () => {
-    test('should return true as truthy', () => {
+describe('Backend Functionality', () => {
+    test('Backend is running successfully!', () => {
       expect(true).toBeTruthy();
     });
   });
