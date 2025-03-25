@@ -30,8 +30,17 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+      # Step3: Implement Caching for performance optimization
+      - name: Cache Node Modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+        
 
-      # Step 3: Install project dependencies including jest tester.
+      # Step 4: Install project dependencies including jest tester.
       # "npm ci" installs dependencies cleanly using your package-lock.json.
       - name: Install Dependencies
         run: npm ci
