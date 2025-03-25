@@ -11,8 +11,13 @@ on:
 
 jobs:
   test:
-    # Use GitHub's latest Ubuntu runner.
-    runs-on: ubuntu-latest
+    # Use GitHub's latest Ubuntu, windows and macos runner.
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        node-version: [20]  
+
+    runs-on: ${{ matrix.os }}
 
     steps:
       # Step 1: Check out the repository code.
@@ -24,9 +29,9 @@ jobs:
       - name: Set Up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '20'
+          node-version: ${{ matrix.node-version }}
 
-      # Step 3: Install project dependencies.
+      # Step 3: Install project dependencies including jest tester.
       # "npm ci" installs dependencies cleanly using your package-lock.json.
       - name: Install Dependencies
         run: npm ci
