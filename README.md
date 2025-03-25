@@ -10,8 +10,27 @@ This project is a backend system for managing book reservations built with Node.
 - **Basic Tests:** The project includes simple tests (e.g., checking that unknown routes return 404 status) to validate backend functionality.
 - **Efficient Dependency Caching:** Uses caching to speed up dependency installation during CI runs.
 
-## Project Structure
+## Testing section
 ---
+
+## Automated Testing
+
+This project includes automated tests to ensure that the backend functions as expected. The tests are written using [Jest](https://jestjs.io/) and [Supertest](https://github.com/visionmedia/supertest), and they run automatically as part of our continuous integration workflow.
+
+### Test Files
+
+- **`__tests__/example.test.js`**  
+  *Purpose:*  
+  This is a basic sanity test that confirms the testing framework is set up correctly and that the backend is "running" in a very minimal sense.  
+  *What It Does:*  
+  It simply asserts that a known truth (i.e., `true`) evaluates as truthy, acting as a placeholder to verify that tests can be executed.
+
+
+- **`__tests__/notfound.test.js`**  
+*Purpose:*  
+This test verifies that undefined routes return a 404 error, ensuring proper error handling on non-existent endpoints.  
+*What It Does:*  
+It uses Supertest to simulate an HTTP GET request to an endpoint (`/nonexistent-url`) that does not exist in the application. The test asserts that the server responds with a 404 status code.
 
 ## Workflow Breakdown
 
@@ -24,14 +43,14 @@ on:
     branches: [ main ]
 
 
-book-reservation-backend-training/ ├── .github/ │ └── workflows/ │ └── backend-tests.yml 
-# GitHub Actions workflow for testing and 
-linting ├── config/ │ └── database.js # Database connection configuration 
-├── controllers/ # Route controllers (e.g., books, auth) 
-├── middleware/ # Express middleware (e.g., auth, error handling) 
-├── models/ # Mongoose models (e.g., Book, User, Reservation) 
-├── routes/ # API route definitions 
-├── tests/ or tests/ # Test files using Jest & Supertest 
-├── app.js # Main application file (with conditional server start) 
-├── package.json # Project settings and scripts 
-└── README.md # This file
+## How to Run the Tests
+
+To run the tests locally, execute the following command:
+
+```bash
+npm test
+
+
+
+---
+This README section provides evaluators and team members with a clear, concise explanation of what each test file does, how to run them, and the overall goal of your testing strategy. Feel free to adjust any details to better match your project's specifics.
