@@ -53,4 +53,6 @@ npm test
 
 
 ---
-This README section provides evaluators and team members with a clear, concise explanation of what each test file does, how to run them, and the overall goal of your testing strategy. Feel free to adjust any details to better match your project's specifics.
+This README section provides evaluators and team members with a clear, concise explanation of what each test file does,
+how to run them, and the overall goal of your testing strategy.
+Feel free to adjust any details to better match your project's specifics.
