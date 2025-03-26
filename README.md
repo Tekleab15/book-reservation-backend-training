@@ -1,6 +1,6 @@
 # Book Reservation Backend Training
 
-This project is a backend system for managing book reservations built with Node.js, Express, and MongoDB. It demonstrates robust application development—complete with authentication, API endpoints, and automated testing using Jest and GitHub Actions.
+This project is a backend system for managing book reservations built with Node.js, Express, and MongoDB. It demonstrates robust application development complete with authentication, API endpoints, and automated testing using Jest and GitHub Actions.
 
 ## Key Features
 
